@@ -11,10 +11,17 @@ jobs:
     steps:
       - name: pokaz wersje pythona
         run: python --version
-  testowanie :
-      runs-on: ubuntu-latest
-      steps:
-        - name: wlacz pylint
-          run: pylint ./app.py
+  testowanie:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Python srodowisko
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+      - name: zainstlowac requirements
+        run: pip install -r requirements.txt
+      - name: wlacz pylint
+        run: pylint ./app.py
         
       
