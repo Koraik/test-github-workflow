@@ -1,0 +1,11 @@
+name : test_pylint
+
+on: push
+
+jobs:
+  testowanie:
+    runs-on: ubuntu-latest
+    steps:
+      - name : wlacz pylint
+        run:
+          pylint ./app.py
