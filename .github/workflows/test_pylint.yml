@@ -6,6 +6,9 @@ jobs:
   testowanie:
     runs-on: ubuntu-latest
     steps:
+      - name: zainstaluj pylint
+        run: 
+          pip install pylint
       - name : wlacz pylint
         run:
           pylint ./app.py
