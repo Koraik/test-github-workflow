@@ -9,18 +9,12 @@ jobs:
   python-version:
     runs-on: ubuntu-latest
     steps:
-      - name: Show Python version
+      - name: pokaz wersje pythona
         run: python --version
-
-  pylint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Set up Python environment
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.x
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-      - name: Run Pylint
-        run: pylint app.py
+  testowanie :
+      runs-on: ubuntu-latest
+      steps:
+        - name: wlacz pylint
+          run: pylint ./app.py
+        
+      
