@@ -1,0 +1,10 @@
+name : wersja_python
+
+on : push
+
+jobs:
+ python-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: pokaz wersje pythona
+        run: python --version
