@@ -1,16 +1,21 @@
-name : test_pylint
-
-on: push
-
+name: Testowanie Pylint
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 jobs:
-  testowanie:
+  pylint:
     runs-on: ubuntu-latest
     steps:
-      - name: zainstaluj pylint
-        run: 
-          pip install pylint
-      - name : przejdz
-        run: cd ..
-      - name : wlacz pylint
-        run:
-          pylint app.py
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8 # zmień na właściwą wersję Pythona
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run pylint
+        run: pylint app.py
+
